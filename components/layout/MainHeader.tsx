@@ -5,8 +5,11 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LanguageIcon from '@mui/icons-material/Language';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import Image from 'next/image';
+import { useContext } from 'react';
+import { LightModeContext } from '../../context/lightModeContext';
 
 const MainHeader = () => {
+  const { dispatch } = useContext(LightModeContext);
   return (
     <header className={styles.topbar}>
       <nav className={styles.topWrapper}>
@@ -47,7 +50,7 @@ const MainHeader = () => {
           </div>
           <div className={styles.topIconContainer}>
             <DarkModeOutlinedIcon
-            // onClick={() => dispatch({ type: 'TOGGLE' })}
+              onClick={() => dispatch({ type: 'TOGGLE' })}
             />
           </div>
 
