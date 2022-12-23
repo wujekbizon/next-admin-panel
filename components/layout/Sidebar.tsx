@@ -1,4 +1,4 @@
-import styles from './Sidebar.module.scss';
+import './Sidebar.scss';
 import { useState } from 'react';
 import Link from 'next/link';
 import DashboardIcon from '@mui/icons-material/Dashboard';
@@ -19,9 +19,12 @@ import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
 import StoreMallDirectoryIcon from '@mui/icons-material/StoreMallDirectory';
 import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import { useContext } from 'react';
+import { LightModeContext } from '../../context/lightModeContext';
 
 const Sidebar = () => {
   const [active, setActive] = useState('1');
+  const { dispatch } = useContext(LightModeContext);
 
   const handleToggleActive = (event: React.MouseEvent<HTMLLIElement>) => {
     setActive(event.currentTarget.id);
@@ -30,171 +33,127 @@ const Sidebar = () => {
   return (
     <>
       {/* {isOpen && <LogoutModal />} */}
-      <aside className={styles.sidebar}>
-        <div className={styles.wrapper}>
-          <div className={styles.menu}>
-            <h3 className={styles.title}>Main</h3>
-            <ul className={styles.list}>
-              <Link href="/" className={styles.link}>
+      <aside className="sidebar">
+        <div className="wrapper">
+          <div className="menu">
+            <h3 className="title">Main</h3>
+            <ul className="list">
+              <Link href="/" className="link">
                 <li
-                  className={
-                    active === '1'
-                      ? `${styles.active}  ${styles.item} `
-                      : styles.item
-                  }
+                  className={active === '1' ? 'active item' : 'item'}
                   id={'1'}
                   onClick={handleToggleActive}
                 >
-                  <DashboardIcon className={styles.sidebarIcon} />
+                  <DashboardIcon className="sidebarIcon" />
                   Dashboard
                 </li>
               </Link>
             </ul>
           </div>
-          <div className={styles.menu}>
-            <h3 className={styles.title}>Sales</h3>
-            <ul className={styles.list}>
+          <div className="menu">
+            <h3 className="title">Sales</h3>
+            <ul className="list">
               <li
-                className={
-                  active === '2'
-                    ? `${styles.active}  ${styles.item} `
-                    : styles.item
-                }
+                className={active === '2' ? 'active item' : 'item'}
                 id={'2'}
                 onClick={handleToggleActive}
               >
-                <TimelineOutlinedIcon className={styles.sidebarIcon} />
+                <TimelineOutlinedIcon className="sidebarIcon" />
                 Analytics
               </li>
               <li
-                className={
-                  active === '3'
-                    ? `${styles.active}  ${styles.item} `
-                    : styles.item
-                }
+                className={active === '3' ? 'active item' : 'item'}
                 id={'3'}
                 onClick={handleToggleActive}
               >
-                <AttachMoneyOutlinedIcon className={styles.sidebarIcon} />
+                <AttachMoneyOutlinedIcon className="sidebarIcon" />
                 Transactions
               </li>
               <li
-                className={
-                  active === '4'
-                    ? `${styles.active}  ${styles.item} `
-                    : styles.item
-                }
+                className={active === '4' ? 'active item' : 'item'}
                 id={'4'}
                 onClick={handleToggleActive}
               >
-                <BarChartIcon className={styles.sidebarIcon} />
+                <BarChartIcon className="sidebarIcon" />
                 Stats
               </li>
             </ul>
           </div>
-          <div className={styles.menu}>
-            <h3 className={styles.title}>List</h3>
-            <ul className={styles.list}>
-              <Link href="/users" className={styles.link}>
+          <div className="menu">
+            <h3 className="title">List</h3>
+            <ul className="list">
+              <Link href="/users" className="link">
                 <li
-                  className={
-                    active === '5'
-                      ? `${styles.active}  ${styles.item} `
-                      : styles.item
-                  }
+                  className={active === '5' ? 'active item' : 'item'}
                   id={'5'}
                   onClick={handleToggleActive}
                 >
-                  <GroupIcon className={styles.sidebarIcon} />
+                  <GroupIcon className="sidebarIcon" />
                   Users
                 </li>
               </Link>
-              <Link href="/products" className={styles.link}>
+              <Link href="/products" className="link">
                 <li
-                  className={
-                    active === '6'
-                      ? `${styles.active}  ${styles.item} `
-                      : styles.item
-                  }
+                  className={active === '6' ? 'active item' : 'item'}
                   id={'6'}
                   onClick={handleToggleActive}
                 >
-                  <StoreMallDirectoryIcon className={styles.sidebarIcon} />
+                  <StoreMallDirectoryIcon className="sidebarIcon" />
                   Products
                 </li>
               </Link>
               <li
-                className={
-                  active === '7'
-                    ? `${styles.active}  ${styles.item} `
-                    : styles.item
-                }
+                className={active === '7' ? 'active item' : 'item'}
                 id={'7'}
                 onClick={handleToggleActive}
               >
-                <CreditCardOutlinedIcon className={styles.sidebarIcon} />
+                <CreditCardOutlinedIcon className="sidebarIcon" />
                 Orders
               </li>
               <li
-                className={
-                  active === '8'
-                    ? `${styles.active}  ${styles.item} `
-                    : styles.item
-                }
+                className={active === '8' ? 'active item' : 'item'}
                 id={'8'}
                 onClick={handleToggleActive}
               >
-                <LocalShippingIcon className={styles.sidebarIcon} />
+                <LocalShippingIcon className="sidebarIcon" />
                 Delivery
               </li>
             </ul>
           </div>
-          <div className={styles.menu}>
-            <h3 className={styles.title}>Notifications</h3>
-            <ul className={styles.list}>
+          <div className="menu">
+            <h3 className="title">Notifications</h3>
+            <ul className="list">
               <li
-                className={
-                  active === '9'
-                    ? `${styles.active}  ${styles.item} `
-                    : styles.item
-                }
+                className={active === '9' ? 'active item' : 'item'}
                 id={'9'}
                 onClick={handleToggleActive}
               >
-                <MailOutlinedIcon className={styles.sidebarIcon} />
+                <MailOutlinedIcon className="sidebarIcon" />
                 Mail
               </li>
               <li
-                className={
-                  active === '10'
-                    ? `${styles.active}  ${styles.item} `
-                    : styles.item
-                }
+                className={active === '10' ? 'active item' : 'item'}
                 id={'10'}
                 onClick={handleToggleActive}
               >
-                <DynamicFeedOutlinedIcon className={styles.sidebarIcon} />
+                <DynamicFeedOutlinedIcon className="sidebarIcon" />
                 Feedback
               </li>
               <li
-                className={
-                  active === '11'
-                    ? `${styles.active}  ${styles.item} `
-                    : styles.item
-                }
+                className={active === '11' ? 'active item' : 'item'}
                 id={'11'}
                 onClick={handleToggleActive}
               >
-                <ChatBubbleOutlinedIcon className={styles.sidebarIcon} />
+                <ChatBubbleOutlinedIcon className="sidebarIcon" />
                 Messages
               </li>
             </ul>
           </div>
-          {/* <div className={styles.menu}>
-            <h3 className={styles.title}>Staff</h3>
-            <ul className={styles.list}>
+          {/* <div className="menu">
+            <h3 className="title">Staff</h3>
+            <ul className="list">
               <li
-                className={active === '12' ? `${styles.active}  ${styles.item} ` : styles.item}
+                className={active === '12' ? 'active item' : 'item'}
                 id={'12'}
                 onClick={handleToggleActive}
               >
@@ -202,7 +161,7 @@ const Sidebar = () => {
                 Manage
               </li>
               <li
-                className={active === '13' ? `${styles.active}  ${styles.item} ` : styles.item}
+                className={active === '13' ? 'active item' : 'item'}
                 id={'13'}
                 onClick={handleToggleActive}
               >
@@ -211,82 +170,64 @@ const Sidebar = () => {
               </li>
             </ul>
           </div> */}
-          <div className={styles.menu}>
-            <h3 className={styles.title}>Service</h3>
-            <ul className={styles.list}>
+          <div className="menu">
+            <h3 className="title">Service</h3>
+            <ul className="list">
               <li
-                className={
-                  active === '14'
-                    ? `${styles.active}  ${styles.item} `
-                    : styles.item
-                }
+                className={active === '14' ? 'active item' : 'item'}
                 id={'14'}
                 onClick={handleToggleActive}
               >
-                <SettingsSystemDaydreamOutlinedIcon
-                  className={styles.sidebarIcon}
-                />
+                <SettingsSystemDaydreamOutlinedIcon className="sidebarIcon" />
                 System Health
               </li>
               <li
-                className={
-                  active === '15'
-                    ? `${styles.active}  ${styles.item} `
-                    : styles.item
-                }
+                className={active === '15' ? 'active item' : 'item'}
                 id={'15'}
                 onClick={handleToggleActive}
               >
-                <PsychologyOutlinedIcon className={styles.sidebarIcon} />
+                <PsychologyOutlinedIcon className="sidebarIcon" />
                 Logs
               </li>
               <li
-                className={
-                  active === '16'
-                    ? `${styles.active}  ${styles.item} `
-                    : styles.item
-                }
+                className={active === '16' ? 'active item' : 'item'}
                 id={'16'}
                 onClick={handleToggleActive}
               >
-                <SettingsIcon className={styles.sidebarIcon} />
+                <SettingsIcon className="sidebarIcon" />
                 Settings
               </li>
             </ul>
           </div>
-          <div className={styles.menu}>
-            <h3 className={styles.title}>User</h3>
-            <ul className={styles.list}>
+          <div className="menu">
+            <h3 className="title">User</h3>
+            <ul className="list">
               <li
-                className={
-                  active === '17'
-                    ? `${styles.active}  ${styles.item} `
-                    : styles.item
-                }
+                className={active === '17' ? 'active item' : 'item'}
                 id={'17'}
                 onClick={handleToggleActive}
               >
-                <AccountCircleOutlinedIcon className={styles.sidebarIcon} />
+                <AccountCircleOutlinedIcon className="sidebarIcon" />
                 Profile
               </li>
             </ul>
           </div>
         </div>
-        <div className={styles.bottom}>
-          <span className={styles.bottomTitle}>Color:</span>
+        <div className="bottom">
+          <span className="bottomTitle">Color:</span>
           <div
-            className={styles.colorOption}
-            // onClick={() => dispatchContext({ type: 'LIGHT' })}
+            className="colorOption"
+            onClick={() => dispatch({ type: 'LIGHT' })}
           ></div>
           <div
-            className={styles.colorOption}
-            // onClick={() => dispatchContext({ type: 'DARK' })}
+            className="colorOption"
+            onClick={() => dispatch({ type: 'DARK' })}
           ></div>
           <div
-            className={styles.logout}
+            className="logout"
             // onClick={() => dispatch(openModal())}
           >
-            <ExitToAppOutlinedIcon className={styles.sidebarIcon} />
+            <ExitToAppOutlinedIcon className="sidebarIcon" />
             Logout
           </div>
         </div>

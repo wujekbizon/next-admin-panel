@@ -1,4 +1,4 @@
-import styles from './WidgetLg.module.scss';
+import './WidgetLg.scss';
 
 const orders = [
   {
@@ -6,28 +6,28 @@ const orders = [
     userId: 123399932,
     createdAt: '13.10.2022',
     amount: 560,
-    status: 'Pending',
+    status: 'pending',
   },
   {
     _id: 2,
     userId: 99932333,
     createdAt: '03.12.2022',
     amount: 1202,
-    status: 'Declined',
+    status: 'declined',
   },
   {
     _id: 3,
     userId: 324322,
     createdAt: '09.12.2022',
     amount: 610,
-    status: 'Approved',
+    status: 'approved',
   },
   {
     _id: 4,
     userId: 13123888,
     createdAt: '03.12.2022',
     amount: 3560,
-    status: 'Approved',
+    status: 'approved',
   },
 ];
 
@@ -48,30 +48,28 @@ const WidgetLg = () => {
   // }, []);
 
   const Button = ({ type }: { type: string }) => {
-    return (
-      <button className={`${styles.button} ${styles.type}`}>{type}</button>
-    );
+    return <button className={`button ${type}`}>{type.toUpperCase()}</button>;
   };
 
   return (
-    <div className={styles.widgetLg}>
-      <h3 className={styles.title}>Latest transactions</h3>
-      <table className={styles.widgetTable}>
+    <div className="widgetLg">
+      <h3 className="title">Latest transactions</h3>
+      <table className="widgetTable">
         <tbody>
-          <tr className={styles.widgetTr}>
-            <th className={styles.widgetTh}>Customer</th>
-            <th className={styles.widgetTh}>Date</th>
-            <th className={styles.widgetTh}>Amount</th>
-            <th className={styles.widgetTh}>Status</th>
+          <tr className="widgetTr">
+            <th className="widgetTh">Customer</th>
+            <th className="widgetTh">Date</th>
+            <th className="widgetTh">Amount</th>
+            <th className="widgetTh">Status</th>
           </tr>
           {orders.map((order) => (
-            <tr className={styles.widgetTr} key={order._id}>
-              <td className={styles.user}>
-                <span className={styles.name}>{order.userId}</span>
+            <tr className="widgetTr" key={order._id}>
+              <td className="user">
+                <span className="name">{order.userId}</span>
               </td>
-              <td className={styles.date}>{order.createdAt}</td>
-              <td className={styles.amount}>${order.amount}</td>
-              <td className={styles.status}>
+              <td className="date">{order.createdAt}</td>
+              <td className="amount">${order.amount}</td>
+              <td className="status">
                 <Button type={order.status} />
               </td>
             </tr>

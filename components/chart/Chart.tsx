@@ -1,4 +1,4 @@
-import styles from './Chart.module.scss';
+import './Chart.scss';
 import {
   AreaChart,
   Area,
@@ -24,8 +24,8 @@ type ChartProps = {
 
 const Chart = ({ aspect, title }: ChartProps) => {
   return (
-    <div className={styles.chart}>
-      <div className={styles.title}>{title}</div>
+    <div className="chart">
+      <div className="title">{title}</div>
       <ResponsiveContainer width="100%" aspect={aspect}>
         <AreaChart width={730} height={150} data={data}>
           <defs>

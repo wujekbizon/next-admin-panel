@@ -1,4 +1,4 @@
-import styles from './FeaturedInfo.module.scss';
+import './FeaturedInfo.scss';
 import { useState, useEffect } from 'react';
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
@@ -27,46 +27,41 @@ const FeaturedInfo = () => {
   // }, []);
 
   return (
-    <div className={styles.featured}>
-      <div className={styles.featuredItem}>
-        <span className={styles.featuredTitle}>Revanue</span>
-        <div className={styles.moneyContainer}>
-          <span className={styles.money}>${income[1]?.total}</span>
-          <span className={styles.moneyRate}>
+    <div className="featured">
+      <div className="featuredItem">
+        <span className="featuredTitle">Revanue</span>
+        <div className="moneyContainer">
+          <span className="money">${income[1]?.total}</span>
+          <span className="moneyRate">
             %{perc.toFixed(2)}
             {perc < 0 ? (
-              <ArrowDownwardOutlinedIcon
-                className={`${styles.icon} ${styles.negative}`}
-              />
+              <ArrowDownwardOutlinedIcon className="icon negative" />
             ) : (
-              <ArrowUpwardOutlinedIcon className={styles.icon} />
+              <ArrowUpwardOutlinedIcon className="icon" />
             )}
           </span>
         </div>
-        <span className={styles.featuredSub}>Compared to last month</span>
+        <span className="featuredSub">Compared to last month</span>
       </div>
-      <div className={styles.featuredItem}>
-        <span className={styles.featuredTitle}>Sales</span>
-        <div className={styles.moneyContainer}>
-          <span className={styles.money}>$46415</span>
-          <span className={styles.moneyRate}>
-            -1.4{' '}
-            <ArrowDownwardOutlinedIcon
-              className={`${styles.icon} ${styles.negative}`}
-            />
+      <div className="featuredItem">
+        <span className="featuredTitle">Sales</span>
+        <div className="moneyContainer">
+          <span className="money">$46415</span>
+          <span className="moneyRate">
+            -1.4 <ArrowDownwardOutlinedIcon className="icon negative" />
           </span>
         </div>
-        <span className={styles.featuredSub}>Compared to last month</span>
+        <span className="featuredSub">Compared to last month</span>
       </div>
-      <div className={styles.featuredItem}>
-        <span className={styles.featuredTitle}>Cost</span>
-        <div className={styles.moneyContainer}>
-          <span className={styles.money}>$1415</span>
-          <span className={styles.moneyRate}>
-            5.4 <ArrowUpwardOutlinedIcon className={styles.icon} />
+      <div className="featuredItem">
+        <span className="featuredTitle">Cost</span>
+        <div className="moneyContainer">
+          <span className="money">$1415</span>
+          <span className="moneyRate">
+            5.4 <ArrowUpwardOutlinedIcon className="icon" />
           </span>
         </div>
-        <span className={styles.featuredSub}>Compared to last month</span>
+        <span className="featuredSub">Compared to last month</span>
       </div>
     </div>
   );

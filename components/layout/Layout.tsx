@@ -1,4 +1,5 @@
-import styles from './Layout.module.scss';
+import './Layout.scss';
+import '../../styles/light.scss';
 import Sidebar from './Sidebar';
 import MainHeader from './MainHeader';
 import { useContext } from 'react';
@@ -9,17 +10,14 @@ type Props = {
 };
 
 const Layout = ({ children }: Props) => {
-  const {
-    state: { lightMode },
-  } = useContext(LightModeContext);
-
+  const { state } = useContext(LightModeContext);
   return (
     <>
-      <div className={lightMode ? `${styles.light}` : ''}>
+      <div className={state.lightMode ? 'light' : ''}>
         <MainHeader />
-        <div className={styles.container}>
+        <div className="container">
           <Sidebar />
-          <main>{children}</main>
+          <main className="home">{children}</main>
         </div>
       </div>
     </>

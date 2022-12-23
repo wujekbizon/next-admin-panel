@@ -1,4 +1,4 @@
-import styles from './MainHeader.module.scss';
+import './MainHeader.scss';
 import Link from 'next/link';
 import Badge from '@mui/material/Badge';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
@@ -10,32 +10,32 @@ import { LightModeContext } from '../../context/lightModeContext';
 
 const MainHeader = () => {
   const { dispatch } = useContext(LightModeContext);
+
   return (
-    <header className={styles.topbar}>
-      <nav className={styles.topWrapper}>
-        <div className={styles.topLeft}>
-          <div className={styles.logoContainer}>
+    <header className="topbar">
+      <nav className="topWrapper">
+        <div className="topLeft">
+          <div className="logoContainer">
             <Link href="/">
               <Image
                 src="/images/logo.png"
                 alt="logo"
                 width={140}
                 height={25}
-                priority
               />
             </Link>
           </div>
-          <span className={styles.textLeft}>ADMIN PANEL</span>
+          <span className="textLeft">ADMIN PANEL</span>
         </div>
         {/* {!admin && ( */}
         {/* <span className="viewMode">View Mode Only For Show Purpose</span> */}
         {/* )} */}
-        <div className={styles.topRight}>
-          <div className={styles.topIconContainer}>
+        <div className="topRight">
+          <div className="topIconContainer">
             <LanguageIcon />
             English
           </div>
-          <div className={styles.topIconContainer}>
+          <div className="topIconContainer">
             <Badge
               badgeContent={1}
               sx={{
@@ -48,14 +48,14 @@ const MainHeader = () => {
               <NotificationsNoneIcon />
             </Badge>
           </div>
-          <div className={styles.topIconContainer}>
+          <div className="topIconContainer">
             <DarkModeOutlinedIcon
               onClick={() => dispatch({ type: 'TOGGLE' })}
             />
           </div>
 
           <Image
-            className={styles.topAvatar}
+            className="topAvatar"
             src={
               // user.img ||
               'https://crowd-literature.eu/wp-content/uploads/2015/01/no-avatar.gif'

@@ -1,14 +1,11 @@
 @import '../../styles/styles.scss';
 
-.home {
-  flex-grow: 4;
-  height: calc(100vh - 70px);
-  background-color: $mainColor;
-  color: $textColor;
+.container {
+  display: flex;
 }
 
-.homeWidgets {
-  display: flex;
-  padding-top: 10px;
-  margin: 20px;
+.home {
+  flex-grow: 4;
+  background-color: $mainColor;
+  color: $textColor;
 }

@@ -11,7 +11,6 @@ export type ActionsMap = {
 export type Actions = {
   [Key in keyof ActionsMap]: {
     type: Key;
-    payload: ActionsMap[Key];
   };
 }[keyof ActionsMap];
 

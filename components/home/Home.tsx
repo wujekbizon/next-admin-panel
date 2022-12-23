@@ -1,4 +1,4 @@
-import styles from './Home.module.scss';
+import './Home.scss';
 import WidgetLg from '../widgets/WidgetLg';
 import WidgetSm from '../widgets/WidgetSm';
 import Chart from '../chart/Chart';
@@ -6,10 +6,10 @@ import FeaturedInfo from '../featuredInfo/FeaturedInfo';
 
 const Home = () => {
   return (
-    <section className={styles.home}>
+    <section className="home">
       <FeaturedInfo />
       <Chart title="User Analytics" aspect={3 / 1} />
-      <div className={styles.homeWidgets}>
+      <div className="homeWidgets">
         <WidgetSm />
         <WidgetLg />
       </div>
