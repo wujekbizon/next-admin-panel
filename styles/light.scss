@@ -4,21 +4,23 @@
   .topbar {
     background-color: $lightNav;
 
-    .topLeft {
-      color: $lightMain;
-
-      .logoContainer {
-        border-color: $lightMain;
-      }
-    }
-
-    .topRight {
-      .topIconContainer {
+    .topWrapper {
+      .topLeft {
         color: $lightMain;
+
+        .logoContainer {
+          border-color: $lightMain;
+        }
       }
 
-      .topAvatar {
-        border-color: $lightMain;
+      .topRight {
+        .topIconContainer {
+          color: $lightMain;
+        }
+
+        .topAvatar {
+          border-color: $lightMain;
+        }
       }
     }
   }
@@ -27,24 +29,28 @@
     background-color: $lightSidebar;
     border-right: 1px solid $lightMain;
 
-    .title {
-      color: #2f3542;
-    }
-
-    .list {
-      .item {
-        color: $lightMain;
-        border-color: transparent;
-
-        &.active,
-        &:hover {
-          background-color: $lightNav;
-          color: white;
+    .wrapper {
+      .menu {
+        .title {
+          color: #2f3542;
         }
-      }
 
-      .sidebarIcon {
-        color: #e67e22;
+        .list {
+          .item {
+            color: $lightMain;
+            border-color: transparent;
+
+            &.active,
+            &:hover {
+              background-color: $lightNav;
+              color: #30363d;
+            }
+          }
+
+          .sidebarIcon {
+            color: #e67e22;
+          }
+        }
       }
     }
 
@@ -109,6 +115,9 @@
         .button {
           background-color: $lightSidebar;
           color: #21262d;
+          &:hover {
+            background-color: $lightNav;
+          }
 
           .icon {
             color: #e67e22;
